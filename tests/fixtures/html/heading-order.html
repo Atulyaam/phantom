@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 5 — Invalid Heading Hierarchy</title>
+  </head>
+  <body>
+    <header>
+      <!-- Violation: heading-order (Moderate) -> The Structure Hall -->
+      <h1>Mansion Great Hall</h1>
+    </header>
+    <main>
+      <section>
+        <!-- Skips h2 and h3 directly to h4 -->
+        <h4>Subterranean Cellar Heading</h4>
+        <p>Content following an invalid heading level jump.</p>
+      </section>
+    </main>
+  </body>
+</html>

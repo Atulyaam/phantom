@@ -1,0 +1,73 @@
+name: Phantom Audit CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-build:
+    name: Code Quality, Test Suite & Extension Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (LTS v22/v24)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+
+      - name: Get pnpm Store Directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm Store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Prettier Style Check
+        run: pnpm format:check
+
+      - name: Run ESLint Quality Check
+        run: pnpm lint
+
+      - name: Run TypeScript Strict Typecheck
+        run: pnpm typecheck
+
+      - name: Run Vitest Unit & Property Test Suite
+        run: pnpm test
+
+      - name: Build Extension (chrome-mv3)
+        run: pnpm build
+
+      - name: Install Playwright Chromium Browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run Playwright Extension Smoke Tests
+        run: pnpm test:e2e
+
+      - name: Verify Extension Manifest Output
+        shell: bash
+        run: |
+          test -f .output/chrome-mv3/manifest.json || { echo "Missing manifest.json"; exit 1; }
+          test -f .output/chrome-mv3/dashboard.html || { echo "Missing dashboard.html"; exit 1; }
+          test -f .output/chrome-mv3/background.js || { echo "Missing background.js"; exit 1; }
+          echo "Production extension artifacts verified successfully."

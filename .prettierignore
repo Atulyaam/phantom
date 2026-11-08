@@ -1,0 +1,9 @@
+node_modules
+.output
+.wxt
+dist
+coverage
+playwright-report
+pnpm-lock.yaml
+public/vendor
+04_phantom_audit_project_spec_kiroween_2026.md

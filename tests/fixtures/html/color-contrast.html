@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 2 — Low Color Contrast</title>
+    <style>
+      .faint-text {
+        color: #bbbbbb;
+        background-color: #ffffff;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Contrast Test Case</h1>
+    </header>
+    <main>
+      <!-- Violation: color-contrast (Serious) -> The Contrast Crypt -->
+      <p class="faint-text" id="faint-paragraph">
+        This pale spectral text fails WCAG AA minimum contrast ratio (1.8:1 instead of
+        4.5:1).
+      </p>
+    </main>
+  </body>
+</html>

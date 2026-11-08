@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 6 — Positive Tabindex Navigation Issue</title>
+  </head>
+  <body>
+    <header>
+      <h1>Keyboard Focus Sequence Test Case</h1>
+    </header>
+    <main>
+      <p>The buttons below disrupt natural sequential focus order.</p>
+      <!-- Violation: tabindex (Serious) -> The Focus Corridor -->
+      <button id="bad-tabindex-1" tabindex="5">Disrupted Focus First</button>
+      <button id="bad-tabindex-2" tabindex="1">Disrupted Focus Second</button>
+      <button id="normal-btn">Natural Focus Button</button>
+    </main>
+  </body>
+</html>

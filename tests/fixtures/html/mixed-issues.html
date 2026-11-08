@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 8 — Mixed Accessibility Issues Showcase</title>
+    <style>
+      .low-contrast-quote {
+        color: #cccccc;
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>The Phantom Manor Homepage</h1>
+    </header>
+    <main>
+      <!-- Room 1: The Name Chamber (button-name) -->
+      <button id="nameless-action" class="btn">
+        <span class="icon" aria-hidden="true">🕷️</span>
+      </button>
+
+      <!-- Room 2: The Contrast Crypt (color-contrast) -->
+      <blockquote class="low-contrast-quote" id="faint-quote">
+        "Whispers in the dark that fail luminosity contrast ratios."
+      </blockquote>
+
+      <!-- Room 3: The Portrait Gallery (image-alt) -->
+      <img
+        id="unlabeled-ghost"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        width="50"
+        height="50"
+      />
+
+      <!-- Room 4: The Form Cellar (label) -->
+      <form>
+        <input type="text" id="unlabeled-input" name="secret" />
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Room 5: The Structure Hall (heading-order) -->
+      <h4>Skipped Direct Subheading</h4>
+      <p>Document text under malformed structure hierarchy.</p>
+    </main>
+  </body>
+</html>

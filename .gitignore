@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# WXT & Build outputs
+.output/
+.wxt/
+dist/
+
+# Test & Coverage
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Kiro directory MUST be tracked
+!.kiro/
+

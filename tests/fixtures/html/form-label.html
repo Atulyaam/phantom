@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 4 — Form Control Missing Label</title>
+  </head>
+  <body>
+    <header>
+      <h1>Form Label Test Case</h1>
+    </header>
+    <main>
+      <form action="/search" method="GET">
+        <p>Enter your search inquiry:</p>
+        <!-- Violation: label (Critical) -> The Form Cellar -->
+        <input type="text" id="unlabeled-query" name="q" />
+        <button type="submit">Search</button>
+      </form>
+    </main>
+  </body>
+</html>

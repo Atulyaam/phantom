@@ -1,0 +1,103 @@
+/**
+ * Phantom Audit — Design Token System
+ * Aesthetic: Haunted Victorian Mansion x Professional Engineering Tool
+ * Standards: WCAG 2.2 AA Contrast & Focus Compliance
+ */
+
+:root {
+  /* Surface & Background Palette (Midnight & Obsidian) */
+  --color-bg-base: #0b0c10;
+  --color-bg-surface: #14161f;
+  --color-bg-surface-raised: #1c1f2b;
+  --color-bg-surface-overlay: #242838;
+  --color-bg-subtle: #181b24;
+
+  /* Text & Content Tokens (High Contrast) */
+  --color-text-primary: #f3f4f6; /* Contrast > 14:1 on --color-bg-base */
+  --color-text-secondary: #9ca3af; /* Contrast > 5.5:1 on --color-bg-base */
+  --color-text-muted: #6b7280; /* Contrast > 3.5:1 for non-essential annotations */
+  --color-text-accent: #c084fc; /* Ethereal Phantom Violet */
+
+  /* Thematic Supernatural Accents */
+  --color-spectral-purple: #8b5cf6;
+  --color-spectral-purple-dark: #6d28d9;
+  --color-spectral-cyan: #22d3ee;
+  --color-spectral-cyan-subtle: rgba(34, 211, 238, 0.12);
+  --color-candlelight-gold: #fbbf24;
+  --color-ghost-mist: rgba(192, 132, 252, 0.08);
+
+  /* Accessibility Severity Tokens (Dual Encoded: Color + Text/Icon) */
+  --color-severity-critical: #ef4444; /* Blood Crimson */
+  --color-severity-critical-bg: rgba(239, 68, 68, 0.15);
+  --color-severity-serious: #f97316; /* Ember Orange */
+  --color-severity-serious-bg: rgba(249, 115, 22, 0.15);
+  --color-severity-moderate: #eab308; /* Tarnished Brass */
+  --color-severity-moderate-bg: rgba(234, 179, 8, 0.15);
+  --color-severity-minor: #3b82f6; /* Dusk Blue */
+  --color-severity-minor-bg: rgba(59, 130, 246, 0.15);
+  --color-severity-unknown: #8b5cf6;
+  --color-severity-unknown-bg: rgba(139, 92, 246, 0.15);
+
+  /* Room Status Colors */
+  --color-room-haunted: #f87171;
+  --color-room-quiet: #34d399; /* Cleared / Peaceful Room */
+  --color-room-manual: #fbbf24;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #242938;
+  --color-border-default: #374151;
+  --color-border-accent: #8b5cf6;
+  --color-border-highlight: #c084fc;
+
+  /* Focus Indicator (WCAG 2.4.7 / 2.4.11 compliant: 3px solid, high contrast) */
+  --focus-ring-color: #38bdf8;
+  --focus-ring-offset: 2px;
+  --focus-ring:
+    0 0 0 var(--focus-ring-offset) var(--color-bg-base),
+    0 0 0 calc(var(--focus-ring-offset) + 3px) var(--focus-ring-color);
+
+  /* Elevation Shadows */
+  --shadow-mansion-card: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 1px rgba(139, 92, 246, 0.2);
+  --shadow-mansion-glow: 0 0 25px rgba(139, 92, 246, 0.25);
+  --shadow-mansion-danger: 0 0 25px rgba(239, 68, 68, 0.25);
+
+  /* Typography Scale */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  --font-display: Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  /* Radius Scale */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Motion Timing (Disabled or Zeroed in reduced-motion) */
+  --motion-duration-fast: 150ms;
+  --motion-duration-normal: 250ms;
+  --motion-duration-slow: 400ms;
+  --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* User reduced-motion override */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: 0ms !important;
+    --motion-duration-normal: 0ms !important;
+    --motion-duration-slow: 0ms !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

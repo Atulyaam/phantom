@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixture 1 — Missing Accessible Name</title>
+  </head>
+  <body>
+    <header>
+      <h1>Accessible Name Test Case</h1>
+    </header>
+    <main>
+      <p>This page contains interactive elements lacking accessible names.</p>
+      <!-- Violation: button-name (Critical) -> The Name Chamber -->
+      <button id="ghost-btn" class="icon-button">
+        <span class="icon" aria-hidden="true">👻</span>
+      </button>
+
+      <!-- Violation: link-name (Serious) -> The Name Chamber -->
+      <a href="#destination" id="ghost-link"></a>
+    </main>
+  </body>
+</html>

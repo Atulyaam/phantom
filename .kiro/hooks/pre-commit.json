@@ -1,0 +1,30 @@
+{
+  "name": "phantom-audit-hooks",
+  "version": "1.0.0",
+  "description": "Kiro automated validation hooks for Phantom Audit",
+  "hooks": [
+    {
+      "name": "post-domain-change",
+      "trigger": "file_change",
+      "pattern": "src/domain/**/*.{ts,tsx}",
+      "command": "pnpm test tests/unit/domain-validation.test.ts"
+    },
+    {
+      "name": "post-mapping-change",
+      "trigger": "file_change",
+      "pattern": "src/features/normalization/**/*.{ts,tsx}",
+      "command": "pnpm test tests/unit/room-mapping.test.ts tests/unit/fingerprint.test.ts"
+    },
+    {
+      "name": "post-ui-change",
+      "trigger": "file_change",
+      "pattern": "src/entrypoints/dashboard/**/*.{ts,tsx}",
+      "command": "pnpm typecheck && pnpm test tests/unit/app-shell.test.tsx"
+    },
+    {
+      "name": "pre-phase-approval",
+      "trigger": "manual_or_pre_commit",
+      "command": "pnpm validate && pnpm test:e2e"
+    }
+  ]
+}
